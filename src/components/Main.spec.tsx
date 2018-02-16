@@ -1,12 +1,12 @@
 import * as React from 'react'
 import {shallow} from 'enzyme'
 
-import {Home} from './Home'
+import {Main} from './Main'
 
 describe('Component', () => {
   describe('Home', () => {
     it('should render without throwing an error', function () {
-      expect(shallow(<Home/>).contains('home')).toBe(true)
+      expect(shallow(<Main/>).contains('main')).toBe(true)
     })
   })
 })

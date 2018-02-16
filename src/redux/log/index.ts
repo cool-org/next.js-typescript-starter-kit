@@ -1,9 +1,8 @@
-import * as GA from 'react-ga'
-import {GA_TRACKING_ID, NA_TRACKING_ID} from '../../constants/env'
-import {DEV} from '../../constants/env'
-import Router from 'next/router'
 import * as qs from 'querystring'
+import * as GA from 'react-ga'
+import Router from 'next/router'
 import {addRouteCompleteEvent} from '../router/index'
+import {DEV, GA_TRACKING_ID, NA_TRACKING_ID} from '../../constants/env'
 
 declare const wcs: any
 declare let _nasa: any
@@ -15,8 +14,8 @@ const INITIALIZED_GA = 'INITIALIZED_GA'
 const INITIALIZED_NA = 'INITIALIZED_NA'
 const SKIP_GA = 'SKIP_GA'
 const SKIP_NA = 'SKIP_NA'
-const UPDATE_USER    = 'UPDATE_USER'
-const LOG_NA         = 'LOG_NA'
+const UPDATE_USER = 'UPDATE_USER'
+const LOG_NA = 'LOG_NA'
 
 export const initializeGa = (userId?) => {
   if (!DEV && GA_TRACKING_ID) {
@@ -36,8 +35,7 @@ export const initializeGa = (userId?) => {
   }
   return {type: SKIP_GA}
 }
-
-export const logNa     = (first: string, second: string) => {
+export const logNa = (first: string, second: string) => {
   if (!DEV && window.wcs) {
     wcs_do({cnv: wcs.cnv(first, second)})
   }
